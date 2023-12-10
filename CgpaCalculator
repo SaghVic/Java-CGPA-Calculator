@@ -1,0 +1,138 @@
+package cgpacalculator;
+ 
+import java.util.Scanner;
+
+public class CgpaCalculator {
+
+  
+    public String getGrade (double score){
+            String grade = "";
+            if (score >= 70 && score <= 100){
+                    grade = "A";
+            } else if (score >= 60 && score <= 69){
+                    grade = "B";
+            }else if (score >= 50 && score <= 59){
+                    grade = "C";
+            }else if (score >= 45 && score <= 49){
+                    grade = "D";
+            }else if (score >= 40 && score <= 49){
+                    grade = "E"; 
+            }else if (score >= 0 && score <= 30){
+                    grade = "E";      
+            }return grade;        
+    }
+    
+    public int getPoint(String grade){
+            int point =  0;
+            switch (grade){
+                case "A" -> point = 5;
+                case "B" -> point = 4;
+                case "C" -> point = 3;
+                case "D" -> point = 2;
+                case "E" -> point = 1;
+                case "F" -> point = 0;     
+            }
+        return point;
+    }
+    
+    public static void main(String[] args) {
+       System.out.println("SIMPLE GRAD");
+       Scanner i = new Scanner(System.in);
+        
+       System.out.print("Enter Course 1: ");
+       String course1 = i.nextLine();
+       
+       System.out.print("Enter " + course1 + " grade unit: ");
+       int unit1 = i.nextInt();
+       
+       System.out.print("Enter " + course1 + " score: ");
+       double score1 = i.nextDouble();
+        
+       i.nextLine();
+       
+       System.out.print("Enter Course 2: ");
+       String course2 = i.nextLine();
+       
+       System.out.print("Enter " + course2 + "grade unit: ");
+       int unit2 = i.nextInt();
+       
+       System.out.print("Enter " + course2 + " score: ");
+       double score2 = i.nextDouble();
+       
+       i.nextLine();
+       
+       System.out.print("Enter Course 3: ");
+       String course3 = i.nextLine();
+       
+        System.out.print("Enter " + course3 + " grade unit: ");
+       int unit3 = i.nextInt();
+       
+       System.out.print("Enter " + course3 + " score: ");
+       double score3 = i.nextDouble();
+        
+       i.nextLine();
+       
+       System.out.print("Enter Course 4: ");
+       String course4 = i.nextLine();
+       
+        System.out.print("Enter " + course4 + " grade unit: ");
+       int unit4 = i.nextInt();
+       
+       System.out.print("Enter " + course4 + " score: ");
+       double score4 = i.nextDouble();
+       
+       i.nextLine();
+       
+       System.out.print("Enter Course 5: ");
+       String course5 = i.nextLine();
+       
+       System.out.print("Enter " + course5 + " grade unit: ");
+       int unit5 = i.nextInt();
+       
+       System.out.print("Enter " + course5 + " score: ");
+       double score5 = i.nextDouble();
+       
+       CgpaCalculator st = new CgpaCalculator();     
+       String grade1 = st.getGrade(score1);
+       String grade2 = st.getGrade(score2);
+       String grade3 = st.getGrade(score3);
+       String grade4 = st.getGrade(score4);
+       String grade5 = st.getGrade(score5);         
+       
+       int point1 = st.getPoint(grade1);
+       int point2 = st.getPoint(grade2);
+       int point3 = st.getPoint(grade3);
+       int point4 = st.getPoint(grade4);
+       int point5 = st.getPoint(grade5);
+       
+       i.nextLine();
+       
+         int totalUnit  = unit1+ unit2+ unit3+ unit4+ unit5;
+         int totalPoint =  point1*unit1;
+         totalPoint += point2*unit2;
+         totalPoint += point3*unit3;
+         totalPoint += point4*unit4; 
+         totalPoint += point5*unit5;
+        
+         double gpa = totalPoint/totalUnit;
+       
+        System.out.println("|--------------------|-----------------------|------------------|----------------|");
+        System.out.println("|   COURSE CODE      |   COURSE UNIT         |    GRADE         |     POINT      |");
+        System.out.println("|--------------------|-----------------------|------------------|----------------|");
+        System.out.println(  "|" + course1+       "|"   + unit1 +         "|" + grade1 +     "|"+ point1 +    "|");
+        System.out.println("|--------------------|-----------------------|------------------|----------------|");
+        System.out.println(  "|   " + course2+ "   |       " + unit2 + "   |    " + grade2 + "|  " + point2 + "|");
+        System.out.println("|--------------------|-----------------------|------------------|----------------|");
+        System.out.println(  "|   " + course3+ "   |       " + unit3 + "   |    " + grade3 + "|  " + point3 + "|");
+        System.out.println("|--------------------|-----------------------|------------------|----------------|");
+        System.out.println(  "|   " + course4+ "   |       " + unit4 + "   |    " + grade4 + "|  " + point4 + "|");
+        System.out.println("|--------------------|-----------------------|------------------|----------------|");
+        System.out.println(  "|   " + course5+ "   |       " + unit5 + "   |    " + grade5 + "|  " + point5 + "|");
+        System.out.println("|--------------------|-----------------------|------------------|----------------|");
+        
+        i.nextLine();
+        
+        System.out.println(" Your Gpa for the semester is: " + gpa);
+        
+    } 
+}
